@@ -296,7 +296,7 @@ git rebase -i HEAD`3
 git cherry-pick <commit-hash>
 ```
 
-- Applies the changes from the commit identified by __`<commit-hash>`__ to the current branch.
+- Applies the changes from the commit identified by **`<commit-hash>`** to the current branch.
 
 ---
 
@@ -333,10 +333,10 @@ git push origin fix-typo
 #### 3. Open a pull request:
 
 - Go to your forked repository on GitHub.
-- You'll see a notification: __"Recently pushed branches: fix-typo. Compare & pull request."__
-- Click __"Compare & pull request"__.
+- You'll see a notification: **"Recently pushed branches: fix-typo. Compare & pull request."**
+- Click **"Compare & pull request"**.
 - Fill in the pull request details (title and description of your changes).
-- Submit the __pull request__.
+- Submit the **pull request**.
 
 ### Task 17: Simulating Team Collaboration
 
@@ -358,13 +358,13 @@ git add .gitignore
 git commit -m "Added .gitignore"
 ```
 
-- __`echo "node_modules/" > .gitignore`:__
-  - Creates a file named __`.gitignore`__ in your repository.
-  - Adds a rule to ignore the __`node_modules/`__ directory (commonly used in JavaScript projects for dependencies).
-- __`git add .gitignore`:__
-  - Stages the __`.gitignore`__ file so it can be committed to the repository.
-- __`git commit -m "Added .gitignore"`:__
-  - Commits the __`.gitignore`__ file to the repository, making it part of your project's version control.
+- **`echo "node_modules/" > .gitignore`:**
+  - Creates a file named **`.gitignore`** in your repository.
+  - Adds a rule to ignore the **`node_modules/`** directory (commonly used in JavaScript projects for dependencies).
+- **`git add .gitignore`:**
+  - Stages the **`.gitignore`** file so it can be committed to the repository.
+- **`git commit -m "Added .gitignore"`:**
+  - Commits the **`.gitignore`** file to the repository, making it part of your project's version control.
 
 #### 2. Verify that ignored files are not staged:
 
@@ -373,7 +373,7 @@ git status
 ```
 
 - Shows the status of your repository, including any staged or untracked files.
-- The __`node_modules/`__ directory (and any files matching patterns in __`.gitignore`__) will not appear in the list of files to be staged.
+- The **`node_modules/`** directory (and any files matching patterns in **`.gitignore`**) will not appear in the list of files to be staged.
 
 ---
 
@@ -387,11 +387,11 @@ git status
 git clean -f
 ```
 
-- __`git clean`:__
+- **`git clean`:**
   - Remove untarcked files and directories from the working directory.
   - Does not affect tracked files (files already added to Git).
-- __`-f`:__
-  - The __`-f`__ flag is required to force the removal of untracked files. By default, Git prevents accidental deletion of files, so the __`-f`__ flag ensures that you intentionally clean your repository.
+- **`-f`:**
+  - The **`-f`** flag is required to force the removal of untracked files. By default, Git prevents accidental deletion of files, so the **`-f`** flag ensures that you intentionally clean your repository.
 
 ### Task-20: Aliases and Shortcuts
 
@@ -402,13 +402,14 @@ git config --global alias.st status
 git config --global alias.cm commit
 ```
 
-- __`git config --global alias.st status`:__
-  - Creates an alias __`st`__ that runs __`status`__.
-  - After this, you can type __`git st`__ instead of __`git status`__.
+- **`git config --global alias.st status`:**
 
-- __`git config --global alias.st commit`:__
-  -  Creates an alias cm that runs __`commit`__.
-  - After this, you can type __`git cm`__ instead of __`git commit`__.
+  - Creates an alias **`st`** that runs **`status`**.
+  - After this, you can type **`git st`** instead of **`git status`**.
+
+- **`git config --global alias.st commit`:**
+  - Creates an alias cm that runs **`commit`**.
+  - After this, you can type **`git cm`** instead of **`git commit`**.
 
 #### 2. Use the alias:
 
@@ -417,8 +418,8 @@ git st
 git cm -m "Message"
 ```
 
-- __`git st`:__
-  - Executes the same functionality as __`git status`__.
-  - Executes the same functionality as __`git commit -m "Message"`__.
+- **`git st`:**
+  - Executes the same functionality as **`git status`**.
+  - Executes the same functionality as **`git commit -m "Message"`**.
 
 ---
