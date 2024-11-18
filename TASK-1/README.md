@@ -636,7 +636,7 @@ git branch -d feature-login
 
 ###
 
-### Task-10: Using Git Stach
+### Task-10: Using Git Stash
 
 ###
 
@@ -655,12 +655,12 @@ echo "Temporary work" >> temp.md
 
 ###
 
-#### 2. Stach the changes:
+#### 2. Stash the changes:
 
 ###
 
 ```bash
-git stach
+git stash
 ```
 
 ####
@@ -671,12 +671,12 @@ git stach
 
 ###
 
-#### 3. View stached changes:
+#### 3. View stashed changes:
 
 ###
 
 ```bash
-git stach list
+git stash list
 ```
 
 ####
@@ -686,18 +686,18 @@ git stach list
 - **Output:**
 
 ```bash
-stach@{0}: WIP on main: abc123 Initial commit
-stach@{1}: WIP on main: def456 Added temp.md
+stash@{0}: WIP on main: abc123 Initial commit
+stash@{1}: WIP on main: def456 Added temp.md
 ```
 
 ###
 
-#### 4. Apply the stached changes:
+#### 4. Apply the stashed changes:
 
 ###
 
 ```bash
-git stach apply
+git stash apply
 ```
 
 ####
@@ -713,7 +713,7 @@ git stach apply
 ###
 
 ```bash
-git stach drop
+git stash drop
 ```
 
 ####
@@ -724,7 +724,7 @@ git stach drop
 
 ###
 
-### Task-11: Rewritung History with Interactive Rebase
+### Task-11: Rewriting History with Interactive Rebase
 
 ###
 
