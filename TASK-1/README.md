@@ -901,27 +901,43 @@ git remote add origin <repository-url>
 
 - **`<repository-url>`:**
   - This is the **URL of the remote repository** where your code will be pushed.
+
 ###
+
 ### Task-15: Forking and Contributing
+
 ###
+
 #### 1. Fork a repository on Github:
+
 ###
+
 - Go to the GitHub repository you want to contribute to (e.g., an open-source project).
 - Click the Fork button at the top right of the page.
 - Choose your GitHub account to fork the repository into.
+
 ###
+
 #### 2. Clone the fork locally:
+
 ###
+
 ```bash
 git clone <repository-url>
 ```
+
 #####
-- __`git clone <forked-repo-url>`:__ 
-  - This command clones the forked repository (not the original one) to your local machine. Replace __`<forked-repo-url>`__ with the URL of your fork (it will be something like __`https://github.com/your-username/repository-name.git`__).
+
+- **`git clone <forked-repo-url>`:**
+  - This command clones the forked repository (not the original one) to your local machine. Replace **`<forked-repo-url>`** with the URL of your fork (it will be something like **`https://github.com/your-username/repository-name.git`**).
 - Once cloned, the repository will be available on your local machine, and you can start making changes.
+
 ###
+
 #### 3. Create a new branch, make changes, and push:
+
 ###
+
 ```bash
 git checkout -b fix-typo
 echo "Typo fixed" >> README.md
@@ -929,27 +945,37 @@ git add README.md
 git commit -m "Fixed a typo"
 git push origin fix-typo
 ```
+
 ####
-- __`git checkout -b fix-typo`:__ 
-  - This command creates and switches to a new branch called __`fix-typo`__.
-- It's important to use a descriptive name for the branch, indicating what the changes will be (e.g., __`fix-typo`__ for fixing a typo).
+
+- **`git checkout -b fix-typo`:**
+  - This command creates and switches to a new branch called **`fix-typo`**.
+- It's important to use a descriptive name for the branch, indicating what the changes will be (e.g., **`fix-typo`** for fixing a typo).
+
 ####
-- __`echo "Typo fixed" >> README.md`:__
-  - This command appends the text __`"Typo fixed"`__ to the __`README.md`__ file.
+
+- **`echo "Typo fixed" >> README.md`:**
+  - This command appends the text **`"Typo fixed"`** to the **`README.md`** file.
 - You can make whatever changes are needed in your branch.
+
 ####
-- __`git add README.md`:__
-  - This stages the modified __`README.md`__ file, preparing it for the commit.
-- __`git commit -m "Fixed a typo"`:__
-  - This commits the changes, with the commit message __"Fixed a typo"__ to explain the change.
+
+- **`git add README.md`:**
+  - This stages the modified **`README.md`** file, preparing it for the commit.
+- **`git commit -m "Fixed a typo"`:**
+  - This commits the changes, with the commit message **"Fixed a typo"** to explain the change.
   ####
-- __`git push origin fix-typo`:__
-  - This uploads your __`fix-typo`__ branch to your remote fork (origin). Now your changes are saved in your forked repository on GitHub.
+- **`git push origin fix-typo`:**
+  - This uploads your **`fix-typo`** branch to your remote fork (origin). Now your changes are saved in your forked repository on GitHub.
+
 ###
+
 #### 4. Open a pull request on GitHub:
+
 ###
-- Go to your forked repository on GitHub (where you just pushed the __`fix-typo`__ branch).
-- GitHub will usually show a message like: __"Your branch is 1 commit ahead of `original-repo`: main"__ with an option to "Compare & pull request."
-- Click on __Compare & pull request__.
-- Provide a title and description for the pull request, explaining the changes you made (e.g., "Fixed a typo in __`README.md`__").
-- Click __Create pull request__.
+
+- Go to your forked repository on GitHub (where you just pushed the **`fix-typo`** branch).
+- GitHub will usually show a message like: **"Your branch is 1 commit ahead of `original-repo`: main"** with an option to "Compare & pull request."
+- Click on **Compare & pull request**.
+- Provide a title and description for the pull request, explaining the changes you made (e.g., "Fixed a typo in **`README.md`**").
+- Click **Create pull request**.
