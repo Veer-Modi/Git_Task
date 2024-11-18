@@ -1,5 +1,7 @@
 # Git And GitHub
 
+---
+
 ## **Part-1: Introduction to Version Control and Git**
 
 ###
@@ -381,7 +383,7 @@ git commit -m "Added workflow example"
 
 - **`-m "Added workflow example"`** provides a message describing the changes.
 
-###
+---
 
 ## Part-2: Workig with Repositories
 
@@ -630,7 +632,7 @@ git branch -d feature-login
 - its used to delete the branch.
 - **`-d`** stands for **delete**.
 
-###
+---
 
 ### Part 3: Advanced Git Operations
 
