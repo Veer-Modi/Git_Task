@@ -416,12 +416,14 @@ git checkout -b feature-login
 - **`feature-login`:**
   - **`feature-login`** Name of created branch.
   ####
-  - **`git checkout`:**
-    - Switches to the **`feature-login`** branch.
-  ####
-  - **`git checkout -b feature-login`:**
-    - **`git checkout`** is used to switch branch.
-    - **`-b`** to create new branch with named **`feature-login`**.
+- **`git checkout`:**
+  - Switches to the **`feature-login`** branch.
+
+####
+
+- **`git checkout -b feature-login`:**
+  - **`git checkout`** is used to switch branch.
+  - **`-b`** to create new branch with named **`feature-login`**.
 
 ###
 
@@ -572,187 +574,380 @@ This is branch-B content
   - Shows the changes from **`branch-B`**.
 
 ####
-- __Edit the file to resolve the conflict. For example:__
+
+- **Edit the file to resolve the conflict. For example:**
+
 ```plaintext
 This is merged content from branch-A and branch-B
 ```
+
 ####
-- __Save the file after resolving the conflict.__
+
+- **Save the file after resolving the conflict.**
+
 ####
-- __`git add README.md`:__
-  -  Marks the conflict as resolved by staging the updated __`README.md`__.
+
+- **`git add README.md`:**
+  - Marks the conflict as resolved by staging the updated **`README.md`**.
+
 ####
-- __`git commit -m "Resloved merge conflict between branch-A and breanch-B"`:__
-  - __Finalizes the merge__ by creating a __new commit__ that includes the __resolved changes__.
+
+- **`git commit -m "Resloved merge conflict between branch-A and breanch-B"`:**
+  - **Finalizes the merge** by creating a **new commit** that includes the **resolved changes**.
+
 ###
+
 ### Task-9: Renaming and Deleting Branches
+
 ###
+
 #### 1. Rename a branch:
+
 ###
+
 ```bash
 git branch -m old-branch-name new-branch-name
 ```
+
 ####
+
 - Renames an existing branch.
-- __`-m`__ stands for "move"(renaming the branch is treated as moving it to a new name).
+- **`-m`** stands for "move"(renaming the branch is treated as moving it to a new name).
 - This works for both the branch you're currently on and other branches in the repository.
+
 ###
+
 #### 2. Deleting a branch:
+
 ###
+
 ```bash
 git branch -d feature-login
 ```
+
 ####
+
 - its used to delete the branch.
-- __`-d`__ stands for __delete__.
+- **`-d`** stands for **delete**.
+
 ###
+
 ### Part 3: Advanced Git Operations
+
 ###
+
 ### Task-10: Using Git Stach
+
 ###
+
 #### 1. Make changes to a file but don't commit:
+
 ###
+
 ```bash
 echo "Temporary work" >> temp.md
 ```
+
 ####
-- Appends the text __`Temporary work`__ to the file __`temp.md`__.
--These changes remain in the __working directory__ (uncommitted and unstaged).
+
+- Appends the text **`Temporary work`** to the file **`temp.md`**.
+- These changes remain in the **working directory** (uncommitted and unstaged).
+
 ###
+
 #### 2. Stach the changes:
+
 ###
+
 ```bash
 git stach
 ```
+
 ####
-- Temporarily saves the changes in a __"stash stack"__ and reverts the working directory to a __clean state__ (matching the last commit).
-- Git takes the __modified files__ and creates a __stash entry__ that you can __retrieve later__.
+
+- Temporarily saves the changes in a **"stash stack"** and reverts the working directory to a **clean state** (matching the last commit).
+- Git takes the **modified files** and creates a **stash entry** that you can **retrieve later**.
 - The changes are not committed but are saved for future use.
+
 ###
+
 #### 3. View stached changes:
+
 ###
-``` bash
+
+```bash
 git stach list
 ```
+
 ####
--  Lists all stashes saved in the stash stack.
-- Git shows a __list of stash entries__, each with a __unique identifier__ (e.g., __`stash@{0}`__ for the __most recent stash__).
-- __Output:__
+
+- Lists all stashes saved in the stash stack.
+- Git shows a **list of stash entries**, each with a **unique identifier** (e.g., **`stash@{0}`** for the **most recent stash**).
+- **Output:**
+
 ```bash
 stach@{0}: WIP on main: abc123 Initial commit
 stach@{1}: WIP on main: def456 Added temp.md
 ```
+
 ###
+
 #### 4. Apply the stached changes:
+
 ###
+
 ```bash
 git stach apply
 ```
+
 ####
-- Reapplies the __stashed changes__ to the __working directory without removing__ them from the __stash stack__.
-- The most recent stash (e.g., __`stash@{0}`__) is applied to the current branch.
+
+- Reapplies the **stashed changes** to the **working directory without removing** them from the **stash stack**.
+- The most recent stash (e.g., **`stash@{0}`**) is applied to the current branch.
 - The stash remains in the stack, so it can be reused if needed.
+
 ###
+
 #### 5. Drop the stach after Applying:
+
 ###
+
 ```bash
 git stach drop
 ```
+
 ####
--  __Deletes__ the __most recent stash__ from the __stash stack__.
-- The __most recent stash__ (e.g., __`stash@{0}`__) is __permanently removed__ from the __stack__.
+
+- **Deletes** the **most recent stash** from the **stash stack**.
+- The **most recent stash** (e.g., **`stash@{0}`**) is **permanently removed** from the **stack**.
 - Once dropped, it cannot be recovered.
+
 ###
+
 ### Task-11: Rewritung History with Interactive Rebase
+
 ###
+
 #### 1. Create multiple commits:
+
 ###
+
 ```bash
 echo "Commit 1" > file1.txt && git add file1.txt && git commit -m "Commit 1"
 echo "Commit 2" > file2.txt && git add file2.txt && git commit -m "Commit 2"
 echo "Commit 3" > file3.txt && git add file3.txt && git commit -m "Commit 3"
 ```
+
 ####
+
 - You now have three commits in your branch, each modifying a different file.
-- __Commit 1:__ Adds __`file1.txt`__ with text __`"Commit 1"`__.
-- __Commit 2:__ Adds __`file2.txt`__ with text __`"Commit 2"`__.
-- __Commit 3:__ Adds __`file3.txt`__ with text __`"Commit 3"`__.
+- **Commit 1:** Adds **`file1.txt`** with text **`"Commit 1"`**.
+- **Commit 2:** Adds **`file2.txt`** with text **`"Commit 2"`**.
+- **Commit 3:** Adds **`file3.txt`** with text **`"Commit 3"`**.
+
 ###
+
 #### 2. Squash commits into one:
+
 ###
+
 ```bash
 git rebase -i HEAD~3
 ```
-- __`git rebase -i`:__
-  - This is the command for starting an __interative rebase__.
-- __`HEAD~3`:__
-  - This specifies that you want to work with the last 3 commits (__`HEAD`__ is the latest commit, and __`HEAD~3`__ refers to the 3 most recent commits).
+
+- **`git rebase -i`:**
+  - This is the command for starting an **interative rebase**.
+- **`HEAD~3`:**
+  - This specifies that you want to work with the last 3 commits (**`HEAD`** is the latest commit, and **`HEAD~3`** refers to the 3 most recent commits).
 - This will open a text editor with a list of the last three commits, something like this:
+
 ```bash
 pick <commit-hash-1> Commit 1
 pick <commit-hash-2> Commit 2
 pick <commit-hash-3> Commit 3
 ```
-- Each line represents one commit, and __`pick`__ means you want to keep that commit as is.
-- To combine (or __squash__) the second and third commits into the first one, replace __`pick`__ with __`squash`__ (or __`s`__) for the second and third commits.
+
+- Each line represents one commit, and **`pick`** means you want to keep that commit as is.
+- To combine (or **squash**) the second and third commits into the first one, replace **`pick`** with **`squash`** (or **`s`**) for the second and third commits.
+
 ```bash
 pick <commit-hash-1> Commit 1
 squash <commit-hash-2> Commit 2
 squash <commit-hash-3> Commit 3
 ```
-- __`pick <commit-hash-1> Commit 1`:__ Keeps the first commit as is.
-- __`squash <commit-hash-2> Commit 2`:__ Combines Commit 2 into Commit 1.
-- __`squash <commit-hash-3> Commit 3`:__ Combines Commit 3 into Commit 1.
+
+- **`pick <commit-hash-1> Commit 1`:** Keeps the first commit as is.
+- **`squash <commit-hash-2> Commit 2`:** Combines Commit 2 into Commit 1.
+- **`squash <commit-hash-3> Commit 3`:** Combines Commit 3 into Commit 1.
+
 ###
+
 ### Task-12: Cherry-Picking Commits
+
 ###
+
 #### 1. Create a new branch:
+
 ###
+
 ```bash
 git checkout -b cherry-pick-exmple
 ```
+
 ####
-- __`git checkout -b cherry-pick-example`:__ 
-  - This creates a new branch named __`cherry-pick-example`__ and checks it out.
-  - You are now on the __`cherry-pick-example`__ branch, ready to bring in changes from other branches.
+
+- **`git checkout -b cherry-pick-example`:**
+  - This creates a new branch named **`cherry-pick-example`** and checks it out.
+  - You are now on the **`cherry-pick-example`** branch, ready to bring in changes from other branches.
+
 ###
+
 #### 2. Cheery-pick a specific commit from another branch:
+
 ###
+
 ```bash
 git cheery-pick <commit-hash>
 ```
+
 ####
-- __`git cherry-pick`:__
+
+- **`git cherry-pick`:**
   - This command allows you to pick a commit from another branch and apply it to the current branch.
-- __`<commit-hash>`:__
-  - This is the unique identifier (SHA) of the commit you want to cherry-pick. You can find the commit hash by using __`git log`__ on the branch where the commit exists.
+- **`<commit-hash>`:**
+  - This is the unique identifier (SHA) of the commit you want to cherry-pick. You can find the commit hash by using **`git log`** on the branch where the commit exists.
+
 ###
+
 ### Task-13: Tagging Commits
+
 ###
+
 #### 1. Tag the commit:
+
 ###
+
 ```bash
 git tag -a v1.0 -m "Version 1.0 release"
 ```
+
 ####
-- __`git tag`:__
+
+- **`git tag`:**
   - This command is used to create a tag.
-- __`-a v1.0`:__
-  - This creates an __annotated tag__ named __`v1.0`__. Annotated tags are the most common type and contain metadata such as the tagger’s name, email, and date, in addition to the tag message.
-- __`-m "Version 1.0 release"`:__
-  - This option specifies a __message__ for the tag, explaining what the tag represents (e.g., this is the release of version 1.0).
-- This will create a tag __`v1.0`__ that points to the current commit (the latest commit in your repository).
+
+####
+
+- **`-a v1.0`:**
+  - This creates an **annotated tag** named **`v1.0`**. Annotated tags are the most common type and contain metadata such as the tagger’s name, email, and date, in addition to the tag message.
+
+####
+
+- **`-m "Version 1.0 release"`:**
+  - This option specifies a **message** for the tag, explaining what the tag represents (e.g., this is the release of version 1.0).
+
+####
+
+- This will create a tag **`v1.0`** that points to the current commit (the latest commit in your repository).
+
 ###
+
 #### 2. Push the tag to the remote repository:
+
 ###
+
 ```bash
 git push prigin v1.0
 ```
+
 #####
-- __`git push`:__
+
+- **`git push`:**
   - This command uploads your local commits and tags to the remote repository.
-- __`origin`:__
+  ####
+- **`origin`:**
   - This refers to the remote repository (the sefault name for the remote repository).
-- __`v1.0`:__
-  - This specifies the tag you want to push. In this case, the tag you created(__`v1.0`__).
+  ####
+- **`v1.0`:**
+  - This specifies the tag you want to push. In this case, the tag you created(**`v1.0`**).
+
 ###
+
+### Task-14: Working with Remote repositories
+
+###
+
+#### 1. Add a remote repository
+
+###
+
+```bash
+git remote add origin <repository-url>
+```
+
+####
+
+- **`git remote add`:**
+- This commamd is used to add a new remote repository to your project.
+
+####
+
+- **`origin`:**
+  - This is the **default name** given to your remote repository. You can name it anything, but **`origin`** is most commanly used name for default remote repository.
+
+####
+
+- **`<repository-url>`:**
+  - This is the **URL of the remote repository** where your code will be pushed.
+###
+### Task-15: Forking and Contributing
+###
+#### 1. Fork a repository on Github:
+###
+- Go to the GitHub repository you want to contribute to (e.g., an open-source project).
+- Click the Fork button at the top right of the page.
+- Choose your GitHub account to fork the repository into.
+###
+#### 2. Clone the fork locally:
+###
+```bash
+git clone <repository-url>
+```
+#####
+- __`git clone <forked-repo-url>`:__ 
+  - This command clones the forked repository (not the original one) to your local machine. Replace __`<forked-repo-url>`__ with the URL of your fork (it will be something like __`https://github.com/your-username/repository-name.git`__).
+- Once cloned, the repository will be available on your local machine, and you can start making changes.
+###
+#### 3. Create a new branch, make changes, and push:
+###
+```bash
+git checkout -b fix-typo
+echo "Typo fixed" >> README.md
+git add README.md
+git commit -m "Fixed a typo"
+git push origin fix-typo
+```
+####
+- __`git checkout -b fix-typo`:__ 
+  - This command creates and switches to a new branch called __`fix-typo`__.
+- It's important to use a descriptive name for the branch, indicating what the changes will be (e.g., __`fix-typo`__ for fixing a typo).
+####
+- __`echo "Typo fixed" >> README.md`:__
+  - This command appends the text __`"Typo fixed"`__ to the __`README.md`__ file.
+- You can make whatever changes are needed in your branch.
+####
+- __`git add README.md`:__
+  - This stages the modified __`README.md`__ file, preparing it for the commit.
+- __`git commit -m "Fixed a typo"`:__
+  - This commits the changes, with the commit message __"Fixed a typo"__ to explain the change.
+  ####
+- __`git push origin fix-typo`:__
+  - This uploads your __`fix-typo`__ branch to your remote fork (origin). Now your changes are saved in your forked repository on GitHub.
+###
+#### 4. Open a pull request on GitHub:
+###
+- Go to your forked repository on GitHub (where you just pushed the __`fix-typo`__ branch).
+- GitHub will usually show a message like: __"Your branch is 1 commit ahead of `original-repo`: main"__ with an option to "Compare & pull request."
+- Click on __Compare & pull request__.
+- Provide a title and description for the pull request, explaining the changes you made (e.g., "Fixed a typo in __`README.md`__").
+- Click __Create pull request__.
