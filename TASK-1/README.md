@@ -136,7 +136,7 @@ echo "My First Project" > README.md
 - **`>`:**
   - This is a **output redirection operator**.
   - It takes the output of the **`echo`** command and writes it to the specified file(**`README.md`**).
-  - If the file deos not exist, it will created. If does exist, its contents will be replaced with the new output.
+  - If the file does not exist, it will created. If does exist, its contents will be replaced with the new output.
 
 ####
 
