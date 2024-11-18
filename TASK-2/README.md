@@ -44,7 +44,7 @@ git init
 - **`git init`:** Its **initailize new empty repository** in the local of the computer.
   - Also make hidden file with git objects which is used to tack changes in the file before commit.
 
-  ---
+---
 
 ## Part 2: Basic Workflow
 
