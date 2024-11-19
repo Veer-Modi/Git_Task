@@ -12,11 +12,15 @@
 echo "Temporary changes" >> temp-file.txt
 ```
 
+- It edit __`temp-file.txt`__ with adding message __`temporary changes`__.
+
 #### 2. View the status of changes:  
 
 ```bash
 git status
 ```
+
+- It shows untracked files, modified files, stage of commit.
 
 - **Output**:  
 ```
@@ -30,6 +34,8 @@ modified:   temp-file.txt
 git stash
 ```
 
+- It saves uncommitted changes,which means It allows you to switch branches or work on something else.
+
 - This command saves changes to a stash and restores the working directory to the last commit state.
 
 #### 4. View the stashed changes:  
@@ -37,6 +43,9 @@ git stash
 ```bash
 git stash list
 ```
+
+- It shows all the stashed changes which are saved in repository.
+-  Each stash is shown with a name, such as __`stash@{0}`__, __`stash@{1}`__, and so on, along with the commit reference and a brief description.
 
 - **Output**:  
 ```
@@ -51,16 +60,22 @@ stash@{0}: WIP on main: 27e5f23 Added temporary changes
 git stash apply
 ```
 
+- It's restores the recent stashed changes to your working directory without removing them from the stash list.
+
 #### 2. Drop the most recent stash after applying it:  
 
 ```bash
 git stash drop
 ```
 
+- The command __`git stash drop`__ is used to remove a specific stash from the stash list. It doesn't apply the changes it simply deletes the stash you specify.
+
 #### 3. Alternatively, to apply a specific stash:  
 ```bash
 git stash apply stash@{1}
 ```
+
+- The command __`git stash apply stash@{1}`__ is used to apply the changes from the stash with the identifier __`stash@{1}`__ to your working directory.
 
 ### **Task 3: Stash Untracked Files**
 
@@ -69,10 +84,16 @@ git stash apply stash@{1}
 git stash -u
 ```
 
+- This command stashes both tracked and untracked files,allowing to save all the work in progress while keeping working directory clean.
+- __`-u`:__
+  - It includes untracked files in the stash.
+
 #### 2. Apply stashed changes including untracked files:  
 ```bash
 git stash apply
 ```
+
+- It's restores the recent stashed changes to your working directory without removing them from the stash list.
 
 ---
 
@@ -85,6 +106,8 @@ git stash apply
 git rebase main
 ```
 
+- Moves all commits from your current branch to start on top of the latest commit in the __`main`__ branch.
+- Rewrites the commit history to make it look as though your branch was created from the current state of __`main`__.
 - This command applies the commits from your current branch on top of the latest commit from `main`.
 
 #### 2. Resolve any conflicts that may arise during rebase, and continue:  
@@ -92,12 +115,17 @@ git rebase main
 git rebase --continue
 ```
 
+- Resumes the rebase process after you have resolved conflicts.
+- Applies the remaining commits on top of __`main`__.
+
 ### **Task 5: Canceling a Rebase**
 
 #### 1. If a rebase goes wrong, abort it:  
 ```bash
 git rebase --abort
 ```
+
+- Restores the branch to its original state before the rebase started.
 
 ---
 
@@ -110,21 +138,81 @@ git rebase --abort
 git log --oneline
 ```
 
+- Displays a concise, one-line summary of the most recent commits.
+- __`Ouput`:__
+```bash
+d3e2f1c Fix a typo in README.md
+c4b5a7b Add login page
+a2d9e3f Initial commit
+```
+
 #### 2. Start an interactive rebase for the last 3 commits:  
 ```bash
 git rebase -i HEAD~3
 ```
+
+- Initiates an interactive rebase for the last 3 commits.
+- Opens your default text editor (e.g., __`vim`__, VS Code, nano) with a list of commits.
 - This opens an editor with the list of commits in the last 3 commits.
+- __Editor View:__
+```bash
+pick d3e2f1c Fix a typo in README.md
+pick c4b5a7b Add login page
+pick a2d9e3f Initial commit
+```
 
 #### 3. Modify the commits by changing `pick` to one of the following:
-- `squash` (combine commits)
-- `reword` (edit commit message)
-- `edit` (edit commit content)
-- `drop` (remove commit)
+- __`squash` (combine commits):__
+  - Combines the commit with the one before it.
+  - __Example:__
+```bash
+pick d3e2f1c Fix a typo in README.md
+squash c4b5a7b Add login page
+pick a2d9e3f Initial commit
+```
+
+- __`reword` (edit commit message):__
+  - Allows you to edit the commit message.
+  - __Example:__
+```bash
+pick d3e2f1c Fix a typo in README.md
+reword c4b5a7b Add login page
+pick a2d9e3f Initial commit
+```
+
+- __`edit` (edit commit content):__
+  - Pauses the rebase to allow you to make changes to the commit's content.
+  - __After making changes, continue the rebase:__
+``` bash
+git rebase --continue
+```
+
+- __`drop` (remove commit):__
+  - Removes the commit entirely.
+  - __Example:__
+```bash
+pick d3e2f1c Fix a typo in README.md
+drop c4b5a7b Add login page
+pick a2d9e3f Initial commit
+```
 
 #### 4. Example of squashing two commits:
 - Change the second commit from `pick` to `squash` and save.
+```bash
+pick d3e2f1c Fix a typo in README.md
+squash c4b5a7b Add login page
+pick a2d9e3f Initial commit
+```
+
 - Git will combine the commit messages for the squashed commit.
+```bash
+# This is a combination of 2 commits.
+# The first commit's message:
+Fix a typo in README.md
+
+# The second commit's message:
+Add login page
+```
 
 ### **Task 7: Complete Interactive Rebase**
 
@@ -292,11 +380,15 @@ git push origin fix-typo
 git remote add upstream https://github.com/original-owner/repo.git
 ```
 
+- Addes the original repository as a remote repository.
+
 #### 2. Fetch changes from the original repository:  
 
 ```bash
 git fetch upstream
 ```
+
+- Fetch the changes from original repository.
 
 #### 3. Merge changes from the original repository into your local branch:  
 
@@ -305,10 +397,14 @@ git checkout main
 git merge upstream/main
 ```
 
+- First switches to __`main`__ branch then merge local branch.
+
 #### 4. Push the changes to your fork:  
 
 ```bash
 git push origin main
 ```
+
+- It push __`main`__ branch.
 
 ---
